@@ -92,9 +92,9 @@ def testglobals2():
     '''import this to you script and run or run nitvars_test.py'''
     def checkvar():
         print(f'var "testvar" in simple globals()={globals().get("testvar","NOT FOUND!")}')
-        print(f'var "testvar" in globals2()={globals2()["testvar"]}')
-        print(f'var "testvar" in realglobals()={realglobals()["testvar"]}')
-        print(f'testvar in [level:id]: {g2("*").stat("testvar")}')
+        print(f'var "testvar" in globals2()={globals2().silent.testvar}')
+        print(f'var "testvar" in realglobals()={realglobals().silent.testvar}')
+        print(f'testvar in [level:id]: {g2("*",notfound=None).stat("testvar")}')
     print('Now get testvar. testvar in globals!')
     checkvar()
     print('Why?  globals() find globals only in this script(in nitvars.py..)')
